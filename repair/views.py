@@ -7,7 +7,7 @@ from django.http import HttpResponse, HttpResponseNotAllowed
 from .forms import *
 from .models import *
 from django.db.models import Q
-from django.http.response import HttpResponse, HttpResponseNotAllowed
+from django.http.response import HttpResponse, HttpResponseNotAllowed, HttpResponseRedirect
 
 from django.contrib.auth.models import User, auth
 from random import randint
@@ -51,11 +51,11 @@ def login(request):
         if user is not None:
             auth.login(request, user)
 
-            return redirect('dashboard')
+            return HttpResponseRedirect('dashboard')
         else:
             context['form'] = form
             messages.error(request, 'Invalid Credentials')
-            return redirect('login')
+            return HttpResponseRedirect('login')
 
 
     return render(request, 'repair/login.html', context)
