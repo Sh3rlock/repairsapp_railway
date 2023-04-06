@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-cwn^5#z6w6$!rcxbtuzpxjos*7dgy5c72!tb)098%n*pdy8fa(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,8 +38,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "repair"
+    "repair",
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "bootstrap5",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -78,12 +85,14 @@ WSGI_APPLICATION = "repairsapp.wsgi.application"
 DATABASES = {
     "default": {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'repairs',
+        'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': 'qweasd',
-        'HOST': 'localhost'
+        'PASSWORD': '4Bzdek4S5opbf3an8Ny9',
+        'HOST': 'containers-us-west-29.railway.app',
+        'PORT': '5726'
     }
 }
+
 
 
 # Password validation
@@ -130,6 +139,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 #Dynamic files and documents
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 MEDIA_URL = '/uploads/'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGIN_URL = 'login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

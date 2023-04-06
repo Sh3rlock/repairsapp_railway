@@ -1,0 +1,14 @@
+{% extends "partials/base.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block main %}
+
+<h2>Dashboard</h2>
+<a href="{% url 'logout' %}">
+    <button type="button" class="btn btn-primary">Logout</button>
+  </a>
+
+{% endblock %}

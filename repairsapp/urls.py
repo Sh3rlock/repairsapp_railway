@@ -26,7 +26,7 @@ urlpatterns = [
 
     #INVOICE URLS
     path('', repair_views.index, name='index'),
-    #path('repair/',include('repair.urls')),
+    path('repair/',include('repair.urls')),
 ]
 
 if settings.DEBUG:

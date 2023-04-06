@@ -1,0 +1,55 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="">
+    <meta name="author" content="">
+    <title>Login</title>
+    <link rel="canonical" href="">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+          crossorigin="anonymous">
+  </head>
+  <body class="text-center">
+    <div class="container p-5">
+    <div class="d-flex align-items-center justify-content-center">
+    <main>
+      <form action="#" method="post">
+        <img class="mb-4"
+             src="{% static '/images/logo_service.png' %}"
+             alt=""
+             width="144"
+             height="114">
+        <h1 class="h3 mb-3 fw-normal">Kérem jelentkezzen be</h1>
+        {% csrf_token %}
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'error' %}
+              <div class="alert alert-danger">{{ message }}</div>
+            {% else %}
+              <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+        <div class="form-floating">
+          {{ form.username }}
+          <label for="floatingInput">Felhasználónév:</label>
+        </div>
+        <div class="form-floating">
+          {{ form.password }}
+          <label for="floatingPassword">Jelszó:</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Belépés</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2023 SMSERVICES S.R.L</p>
+      </form>
+    </main>
+  </div>
+</div>
+  </body>
+</html>
